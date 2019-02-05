@@ -3,10 +3,10 @@
     <v-flex xs4>
       <div class="white elevation-2">
         <v-toolbar flat dense dark class="red darken-2">
-          <v-toolbar-title>Register</v-toolbar-title>
+          <v-toolbar-title>Login</v-toolbar-title>
         </v-toolbar>
         <v-form class="pt-4 pb-2 pl-4 pr-4"
-          name="form-register">
+          name="form-login">
           <v-text-field
             label="Email address"
             name="input-email"
@@ -23,8 +23,8 @@
           <span class="red--text" v-html="error"></span>
           <br>
           <v-btn class="blue" dark
-            @click="handleRegister">
-            Register
+            @click="handleLogin">
+            Login
           </v-btn>
         </v-form>
       </div>
@@ -36,7 +36,7 @@
 import AuthenticationService from '@/services/AuthenticationService'
 
 export default {
-  name: 'Register',
+  name: 'Login',
   data () {
     return {
       email: '',
@@ -45,9 +45,9 @@ export default {
     }
   },
   methods: {
-    async handleRegister () {
+    async handleLogin () {
       try {
-        const response = await AuthenticationService.register({
+        const response = await AuthenticationService.login({
           email: this.email,
           password: this.password
         })
