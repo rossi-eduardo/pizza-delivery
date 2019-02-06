@@ -3,14 +3,25 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import Vuetify from 'vuetify'
 import { sync } from 'vuex-router-sync'
 import store from '@/store/store'
-import 'vuetify/dist/vuetify.min.css'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import 'bulma/css/bulma.min.css'
+import {
+  faHome,
+  faUser,
+  faKey
+} from '@fortawesome/free-solid-svg-icons'
 
 Vue.config.productionTip = false
 
-Vue.use(Vuetify)
+library.add(faHome)
+library.add(faUser)
+library.add(faKey)
+
+Vue.component('font-awesome-icon', FontAwesomeIcon)
+
 sync(store, router)
 
 /* eslint-disable no-new */
