@@ -12,7 +12,21 @@ import {
   faHome,
   faUser,
   faKey,
-  faPizzaSlice
+  faTasks,
+  faCog,
+  faCogs,
+  faSignOutAlt,
+  faWallet,
+  faCreditCard,
+  faCashRegister,
+  faTools,
+  faChartBar,
+  faPizzaSlice,
+  faUsers,
+  faUserFriends,
+  faHamburger,
+  faTruckLoading,
+  faUtensils
 } from '@fortawesome/free-solid-svg-icons'
 
 Vue.config.productionTip = false
@@ -20,7 +34,21 @@ Vue.config.productionTip = false
 library.add(faHome)
 library.add(faUser)
 library.add(faKey)
+library.add(faTasks)
+library.add(faCog)
+library.add(faCogs)
+library.add(faSignOutAlt)
+library.add(faWallet)
+library.add(faCreditCard)
+library.add(faCashRegister)
+library.add(faTools)
+library.add(faChartBar)
 library.add(faPizzaSlice)
+library.add(faUsers)
+library.add(faUserFriends)
+library.add(faHamburger)
+library.add(faTruckLoading)
+library.add(faUtensils)
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 

@@ -16,22 +16,32 @@
     <div id="div-menu" class="navbar-menu">
       <div class="navbar-start">
         <router-link class="navbar-item"
+          v-if="$store.state.sessionActive"
           to="/home">
-          Home
+          <font-awesome-icon icon="home" class="fa-lg" />
         </router-link>
       </div>
 
       <div class="navbar-end">
+        <router-link class="navbar-item"
+          v-if="$store.state.user && $store.state.user.userType === 'admin'"
+          to="/admin">
+          <font-awesome-icon icon="tools" class="fa-lg" />
+        </router-link>
+        <router-link class="navbar-item"
+          v-if="$store.state.sessionActive"
+          to="/logoff">
+          <font-awesome-icon icon="sign-out-alt" class="fa-lg" />
+        </router-link>
         <div class="navbar-item">
-          <div class="navbar-item has-text-light">
-            Doesn't have a account?
-          </div>
           <div class="buttons">
             <router-link class="button is-danger"
+              v-if="!$store.state.sessionActive"
               to="/register">
               <strong>Sign up</strong>
             </router-link>
             <router-link class="button is-light"
+              v-if="!$store.state.sessionActive"
               to="/login">
               Log in
             </router-link>

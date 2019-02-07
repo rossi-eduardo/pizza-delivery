@@ -15,31 +15,72 @@
     </div>
     <div class="columns">
       <div class="column is-three-quarters">
-      <section class="hero is-warning is-small">
+        <section class="hero is-warning is-small">
           <div class="hero-body">
-              <div class="container">
-                  <h1 class="title">
-                    Hello, __USERNAME__
-                  </h1>
-                  <h2 class="subtitle">
-                    How you doing today? 🍕🍣
-                  </h2>
-              </div>
+            <h1 class="title">
+              Hello, __USERNAME__
+            </h1>
+            <h2 class="subtitle">
+              How you doing today? 🍕
+            </h2>
           </div>
-      </section>
+        </section>
+        <br>
+        <div class="box">
+          <h4 id="const" class="title is-4">Some title here</h4>
+          <p>Some information here</p>
+        </div>
       </div>
       <div class="column">
         <div class="box">
-          <h4 id="const" class="title is-3">const</h4>
-          <article class="message is-primary">
-            <span class="icon has-text-primary">
-            <i class="fab fa-js"></i>
-            </span>
-            <div class="message-body">
-              Block-scoped. Cannot be re-assigned. Not immutable.
-            </div>
-          </article>
-          <pre class=" language-javascript"><code class=" language-javascript"><span class="token keyword">const</span> test <span class="token operator">=</span> <span class="token string">'test'</span><span class="token punctuation">;</span></code></pre>
+          <aside class="menu">
+            <p class="menu-label">
+              General
+            </p>
+            <ul class="menu-list">
+              <li>
+                <router-link to="#">
+                  <font-awesome-icon icon="tasks" class="has-text-warning" />
+                  My orders
+                </router-link>
+              </li>
+              <li>
+                <router-link to="#">
+                  <font-awesome-icon icon="cog" class="has-text-primary" />
+                  Account settings
+                </router-link>
+              </li>
+              <li>
+                <router-link to="#">
+                  <font-awesome-icon icon="sign-out-alt" class="has-text-danger" />
+                  Log off
+                </router-link>
+              </li>
+              <p class="menu-label">
+                Transactions
+              </p>
+              <ul class="menu-list">
+                <li>
+                  <router-link to="#">
+                    <font-awesome-icon icon="wallet" class="has-text-grey" />
+                    My wallet
+                  </router-link>
+                </li>
+                <li>
+                  <router-link to="#">
+                    <font-awesome-icon icon="credit-card" class="has-text-info" />
+                    Payment info
+                  </router-link>
+                </li>
+                <li>
+                  <router-link to="#">
+                    <font-awesome-icon icon="cash-register" class="has-text-success" />
+                    Payment history
+                  </router-link>
+                </li>
+              </ul>
+            </ul>
+          </aside>
         </div>
       </div>
     </div>
@@ -71,5 +112,11 @@ export default {
   background: #ffcc00;
   background: -webkit-linear-gradient(to right, #ffdd57, #ffcc00);
   background: linear-gradient(to right, #ffdd57, #ffcc00);
+  border-radius: 6px;
+  -webkit-box-shadow: 0 2px 3px rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.1);
+  box-shadow: 0 2px 3px rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.1);
+}
+.menu-list svg {
+  margin-right: 9px;
 }
 </style>
