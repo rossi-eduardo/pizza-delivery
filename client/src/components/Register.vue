@@ -6,6 +6,7 @@
         <p class="subtitle has-text-white">Create an account</p>
       </div>
       <form class="box" name="register-form">
+        <div class="field has-text-danger" v-if="error">{{ error }}</div>
         <div class="field">
           <label class="label">Email address</label>
           <div class="control has-icons-left has-icons-right">
@@ -53,7 +54,7 @@
         </div>
         <div class="field">
           <div class="control">
-            <button class="button is-success"
+            <button type="button" class="button is-success"
               v-on:click="handleRegister">Create account</button>
           </div>
         </div>
@@ -73,13 +74,14 @@ export default {
       password: '',
       passwordConfirmation: '',
       terms: false,
-      error: null,
-      errors: []
+      error: null
     }
   },
   methods: {
     async handleRegister () {
       try {
+        this.error = null
+
         const response = await AuthenticationService.register({
           email: this.email,
           password: this.password,
@@ -89,6 +91,8 @@ export default {
 
         this.$store.dispatch('setToken', response.data.token)
         this.$store.dispatch('setUser', response.data.user)
+
+        this.$router.push('/home')
       } catch (error) {
         this.error = error.response.data.error
       }

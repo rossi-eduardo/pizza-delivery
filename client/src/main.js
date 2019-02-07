@@ -11,7 +11,8 @@ import 'bulma/css/bulma.min.css'
 import {
   faHome,
   faUser,
-  faKey
+  faKey,
+  faPizzaSlice
 } from '@fortawesome/free-solid-svg-icons'
 
 Vue.config.productionTip = false
@@ -19,6 +20,7 @@ Vue.config.productionTip = false
 library.add(faHome)
 library.add(faUser)
 library.add(faKey)
+library.add(faPizzaSlice)
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 

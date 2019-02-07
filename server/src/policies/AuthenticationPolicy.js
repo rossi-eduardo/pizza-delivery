@@ -1,11 +1,11 @@
 const Joi = require('joi')
 
 module.exports = {
-  validateLoginRegister (req, res, next) {
+  validateLogin (req, res, next) {
     const schema = {
       email: Joi.string().email(),
       password: Joi.string().regex(
-        new RegExp('^[a-zA-Z0-9!@#$%^&]{8,32}$')
+        new RegExp('^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[#$^+=!*()@%&]).{6,16}$')
       )
     }
 
@@ -20,7 +20,7 @@ module.exports = {
           break
         case 'password':
           res.status(400).send({
-            error: 'The password must have at least 1 lowercase and 1 uppercase character, 1 numeric character and 1 special character. Also it must have between 8 and 32 characters in length'
+            error: 'The password must contain at least 1 letter, 1 numeric character, 1 special character and between 6 and 16 characters in length'
           })
           break
         default:
@@ -38,7 +38,7 @@ module.exports = {
       email: Joi.string().email(),
       password: Joi.string().regex(new RegExp(passwordRegex)),
       passwordConfirmation: Joi.string().regex(new RegExp(passwordRegex)),
-      terms: Joi.boolean().truthy('Y')
+      terms: Joi.boolean().valid(true).required()
     }
 
     const { error } = Joi.validate(req.body, schema)

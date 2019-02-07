@@ -1,35 +1,46 @@
 <template>
-  <v-layout align-center justify-center row fill-height>
-    <v-flex xs4>
-      <div class="white elevation-2">
-        <v-toolbar flat dense dark class="red darken-2">
-          <v-toolbar-title>Login</v-toolbar-title>
-        </v-toolbar>
-        <v-form class="pt-4 pb-2 pl-4 pr-4"
-          name="form-login">
-          <v-text-field
-            label="Email address"
-            name="input-email"
-            v-model="email"
-            solo>
-          </v-text-field>
-          <v-text-field
-            :type="'password'"
-            label="Password"
-            name="input-password"
-            v-model="password"
-            solo>
-          </v-text-field>
-          <span class="red--text" v-html="error"></span>
-          <br>
-          <v-btn class="blue" dark
-            @click="handleLogin">
-            Login
-          </v-btn>
-        </v-form>
+  <div>
+    <div class="column is-4 is-offset-4">
+      <div class="box-title">
+        <h3 class="title has-text-white">Sign in</h3>
+        <p class="subtitle has-text-white">Log in with your account</p>
       </div>
-    </v-flex>
-  </v-layout>
+      <form class="box" name="register-form">
+        <div class="field has-text-danger" v-if="error">{{ error }}</div>
+        <div class="field">
+          <label class="label">Email address</label>
+          <div class="control has-icons-left has-icons-right">
+            <input class="input" type="email" v-model="email">
+            <span class="icon is-small is-left">
+              <font-awesome-icon icon="user" />
+            </span>
+            <span class="icon is-small is-right">
+              <i class="fas fa-check"></i>
+            </span>
+          </div>
+          <p class="help"></p>
+        </div>
+        <div class="field">
+          <label class="label">Password</label>
+          <div class="control has-icons-left has-icons-right">
+            <input class="input" type="password" v-model="password">
+            <span class="icon is-small is-left">
+              <font-awesome-icon icon="key" />
+            </span>
+            <span class="icon is-small is-right">
+              <i class="fas fa-check"></i>
+            </span>
+          </div>
+        </div>
+        <div class="field">
+          <div class="control">
+            <button type="button" class="button is-success"
+              v-on:click="handleLogin">Sign in</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -63,10 +74,17 @@ export default {
 </script>
 
 <style scoped>
-.error {
-  color: #f00;
+.box {
+  max-width: 520px;
 }
-button.blue {
-  font-weight: 600;
+.box-title {
+  margin-bottom: 20px;
+}
+.helper-links a {
+  color: #ff3b30;
+}
+.helper-links a:hover,
+.helper-links a:active {
+  color: #bf2a22;
 }
 </style>
